@@ -6,18 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ide a Todos | Evangelismo</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff; color: #333; }
-        header { background: linear-gradient(90deg, #007BFF, #FF4500); color: white; padding: 20px; text-align: center; }
-        nav { background: #000; display: flex; flex-wrap: wrap; justify-content: center; }
-        nav a { color: white; padding: 10px 15px; text-decoration: none; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+        header { background: linear-gradient(135deg, #007BFF, #FF4500); color: white; padding: 40px 20px; text-align: center; }
+        header h1 { font-size: 2.2em; margin: 0; }
+        header p { font-size: 1.1em; max-width: 600px; margin: 10px auto; }
+        nav { background: #333; display: flex; flex-wrap: wrap; justify-content: center; }
+        nav a { color: white; padding: 12px 18px; text-decoration: none; font-weight: 500; }
         nav a:hover { background: #FF4500; }
-        section { padding: 20px; max-width: 900px; margin: auto; }
-        footer { background: #000; color: white; text-align: center; padding: 10px; }
-        .gallery img { width: 100%; max-width: 200px; margin: 5px; border-radius: 8px; }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; }
-        h1, h2 { color: #FF4500; }
-        button { background: #007BFF; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
-        button:hover { background: #0056b3; }
+        section { padding: 20px; max-width: 900px; margin: auto; background: white; margin-top: 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        footer { background: #333; color: white; text-align: center; padding: 15px; margin-top: 20px; }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .gallery img { width: 100%; max-width: 280px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: transform 0.3s; }
+        .gallery img:hover { transform: scale(1.05); }
+        h2 { color: #FF4500; text-align: center; margin-top: 0; }
+        a.button { display: inline-block; background: #007BFF; color: white; padding: 10px 20px; margin-top: 10px; border-radius: 5px; text-decoration: none; }
+        a.button:hover { background: #0056b3; }
+        #whatsapp-button { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        #whatsapp-button:hover { background: #128C7E; }
     </style>
 </head>
 <body>
@@ -26,6 +31,7 @@
         <p>“E indo, pregai, curai os enfermos, ressuscitai os mortos, limpai os leprosos, expulsai os demônios; de graça recebestes, de graça dai.”</p>
         <p><em>Tudo pode esperar, menos a missão. Porque ela é urgente.</em><br><em>Toda a maldição, nós pisamos em nome de Jesus.</em></p>
     </header>
+
     <nav>
         <a href="#home">Home</a>
         <a href="#sobre">Sobre</a>
@@ -41,60 +47,61 @@
 
     <section id="home">
         <h2>Home</h2>
-        <p>Bem-vindo ao Ide a Todos, um ministério focado na evangelização e discipulado, proclamando a Palavra e o poder de Deus.</p>
+        <p>Bem-vindo ao Ide a Todos, um ministério comprometido em cumprir o IDE de Cristo com urgência e amor, pregando, discipulando e libertando vidas pelo poder do Evangelho.</p>
     </section>
 
     <section id="sobre">
         <h2>Sobre</h2>
-        <p>Somos uma plataforma evangelística que visa cumprir a grande comissão com urgência, levando a Palavra de salvação e libertação em Cristo Jesus a todos os povos.</p>
+        <p>Somos um ministério evangelístico que busca alcançar todas as pessoas com a mensagem transformadora de Jesus Cristo, preparando e enviando discípulos para a seara.</p>
     </section>
 
     <section id="contato">
         <h2>Contato</h2>
-        <p>Envie suas dúvidas, pedidos ou parcerias para nosso e-mail: <a href="mailto:contato@ideatodos.com">contato@ideatodos.com</a>.</p>
+        <p>Entre em contato conosco para parcerias, dúvidas ou para receber oração: <a href="mailto:contato@ideatodos.com">contato@ideatodos.com</a></p>
     </section>
 
     <section id="doacoes">
         <h2>Doações</h2>
-        <p>Ajude-nos a expandir a obra missionária. Para doar, envie para nossa conta PIX: <strong>+258 84 xxx xxx</strong> ou entre em contato conosco.</p>
+        <p>Ajude-nos a levar o Evangelho a todos. Contribua via PIX ou entre em contato para saber outras formas de apoiar este ministério.</p>
     </section>
 
     <section id="galeria">
         <h2>Galeria de Eventos</h2>
         <div class="gallery">
-            <img src="https://via.placeholder.com/200" alt="Evento 1">
-            <img src="https://via.placeholder.com/200" alt="Evento 2">
-            <img src="https://via.placeholder.com/200" alt="Evento 3">
+            <img src="https://i.imgur.com/ZXxmpbT.jpg" alt="Cruzada Evangelística 1">
+            <img src="https://i.imgur.com/Y6DEeCZ.jpg" alt="Cruzada Evangelística 2">
         </div>
     </section>
 
     <section id="devocional">
         <h2>Devocional</h2>
-        <p>Leia mensagens diárias e devocionais para fortalecer sua fé e caminhar em intimidade com o Senhor.</p>
+        <p>Confira mensagens e reflexões para fortalecer sua fé e sua caminhada com Cristo diariamente.</p>
     </section>
 
     <section id="publicidade">
         <h2>Publicidade de Materiais</h2>
-        <p>Divulgamos livros, cursos e materiais evangelísticos para equipar você no cumprimento da missão.</p>
+        <p>Divulgamos materiais cristãos, cursos e livros para fortalecer sua caminhada e equipar sua missão.</p>
     </section>
 
     <section id="atendimento">
         <h2>Atendimento</h2>
-        <p>Oferecemos aconselhamento espiritual, oração e atendimento pastoral online.</p>
+        <p>Disponibilizamos aconselhamento pastoral e espiritual para apoiá-lo em sua jornada com Cristo.</p>
     </section>
 
     <section id="pedidos">
         <h2>Pedidos de Oração</h2>
-        <p>Envie seu pedido de oração via WhatsApp ou e-mail, e intercessores estarão orando por você.</p>
+        <p>Envie seu pedido de oração para nós intercedermos por você e sua família em nome de Jesus.</p>
     </section>
 
     <section id="testemunhos">
         <h2>Testemunhos</h2>
-        <p>Leia e compartilhe testemunhos do que Deus tem feito através deste ministério e de sua fé.</p>
+        <p>Leia e compartilhe testemunhos de vidas transformadas pelo poder de Deus através deste ministério.</p>
     </section>
 
     <footer>
-        <p>&copy; 2025 Ide a Todos. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Ide a Todos | Todos os direitos reservados.</p>
     </footer>
+
+    <a id="whatsapp-button" href="https://wa.me/258843829556" target="_blank" title="Fale conosco no WhatsApp">&#128222;</a>
 </body>
 </html>
