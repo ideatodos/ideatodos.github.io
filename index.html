@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -8,31 +7,37 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', sans-serif; background: #ffffff; color: #333; }
-header { position: relative; height: 100vh; background: url('images/1.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; color: white; }
-header::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); }
-header h1 { position: relative; font-size: 2.5em; margin-bottom: 20px; color: #e67e22; }
-header p { position: relative; max-width: 600px; color: black; font-size: 1.6em; }
-header img { position: relative; width: 150px; margin-bottom: 20px; border-radius: 10px; }
-nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: center; background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); z-index: 1000; transition: background 0.3s; }
-nav a { padding: 15px 20px; text-decoration: none; color: #333; font-weight: 500; transition: background 0.3s, color 0.3s; }
-nav a:hover { background: #333; color: white; }
-section { padding: 60px 20px; max-width: 900px; margin: auto; }
-section h2 { font-size: 2em; color: #333; margin-bottom: 20px; text-align: center; position: relative; }
-section p { font-size: 1.1em; line-height: 1.6; text-align: center; max-width: 700px; margin: auto; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; padding: 20px; }
+header { position: relative; height: 100vh; background: url('images/1.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
+header::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); }
+header h1 { position: relative; font-size: 2.2em; margin-bottom: 20px; color: #e67e22; padding: 0 10px; }
+header p { position: relative; max-width: 90%; color: white; font-size: 1.2em; padding: 0 10px; }
+nav { position: fixed; top: 0; width: 100%; display: flex; align-items: center; padding: 5px 15px; background: rgba(255,255,255,0.95); backdrop-filter: blur(5px); z-index: 1000; }
+nav img { height: 60px; margin-right: 15px; }
+nav a { padding: 10px 12px; text-decoration: none; color: #2c3e50; font-weight: 500; transition: background 0.3s, color 0.3s; font-size: 0.95em; }
+nav a:hover { background: #2c3e50; color: white; border-radius: 5px; }
+section { padding: 40px 15px; max-width: 900px; margin: auto; }
+section h2 { font-size: 1.8em; color: #e67e22; margin-bottom: 15px; text-align: center; }
+section p { font-size: 1em; line-height: 1.6; text-align: center; max-width: 700px; margin: auto; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; padding: 10px; }
 .gallery img { width: 100%; border-radius: 10px; cursor: pointer; transition: transform 0.3s; }
 .gallery img:hover { transform: scale(1.05); }
-footer { background: #111; color: white; text-align: center; padding: 20px; font-size: 0.9em; }
-.button { display: inline-block; background: #d4af37; color: white; padding: 12px 20px; border-radius: 5px; text-decoration: none; margin-top: 20px; transition: background 0.3s; }
-.button:hover { background: #b9962f; }
-#whatsapp-button { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
+footer { background: #111; color: white; text-align: center; padding: 15px; font-size: 0.9em; }
+.button { display: inline-block; background: #e67e22; color: white; padding: 10px 16px; border-radius: 5px; text-decoration: none; margin-top: 15px; transition: background 0.3s; font-size: 1em; }
+.button:hover { background: #ca651a; }
+#whatsapp-button { position: fixed; bottom: 15px; right: 15px; background: #25D366; color: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
 #whatsapp-button:hover { background: #128C7E; }
+@media (max-width: 768px) {
+  header h1 { font-size: 1.8em; }
+  header p { font-size: 1em; }
+  nav img { height: 50px; }
+  nav a { padding: 8px 10px; font-size: 0.9em; }
+}
 </style>
 </head>
 <body>
 <nav>
 <a href="#home">
-<img src="images/ide2.png" alt="Logo IDE" style="height: 90px; margin-left: 15px; /* ajuste conforme desejar *}
+    <img src="images/ide2.png" alt="Logo IDE">
 </a>
 <a href="#home">Home</a>
 <a href="#sobre">Sobre</a>
@@ -42,9 +47,7 @@ footer { background: #111; color: white; text-align: center; padding: 20px; font
 <a href="#devocional">Devocional</a>
 <a href="#testemunhos">Testemunhos</a>
 </nav>
-</nav>
 <header id="home">
-<img src="images/ide2.png" alt="IDE Até que Todos Escutem">
 <h1>IDE Até que Todos Escutem</h1>
 <p>“E indo, pregai, curai os enfermos, ressuscitai os mortos, limpai os leprosos, expulsai os demônios; de graça recebestes, de graça dai.”</p>
 <a href="#contato" class="button">Entre em Contato</a>
@@ -84,4 +87,3 @@ footer { background: #111; color: white; text-align: center; padding: 20px; font
 <a id="whatsapp-button" href="https://wa.me/258843829556" target="_blank" title="Fale conosco no WhatsApp">&#128222;</a>
 </body>
 </html>
-
