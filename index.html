@@ -6,54 +6,46 @@
 <title>IDE ATÉ QUE TODOS ESCUTEM</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body { font-family: 'Segoe UI', sans-serif; background: #ffffff; color: #333; }
 header { position: relative; height: 100vh; background: url('images/1.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
 header::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); }
 header h1 { position: relative; font-size: 2.2em; margin-bottom: 20px; color: #e67e22; padding: 0 10px; text-transform: uppercase; }
 header p { position: relative; max-width: 90%; color: white; font-size: 1.2em; padding: 0 10px; }
-.menu-btn { position: fixed; top: 15px; right: 15px; z-index: 1100; cursor: pointer; width: 30px; height: 30px; }
-.menu-btn div { width: 100%; height: 4px; background: #e67e22; margin: 5px 0; transition: 0.3s; }
-nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: rgba(255,255,255,0.97); backdrop-filter: blur(5px); display: flex; flex-direction: column; align-items: flex-start; padding: 20px; z-index: 1000; transition: right 0.3s; }
-nav.active { right: 0; }
-nav img { height: 60px; margin-bottom: 20px; }
-nav a { padding: 10px 0; text-decoration: none; color: #2c3e50; font-weight: 500; transition: background 0.3s, color 0.3s; font-size: 1em; text-transform: uppercase; width: 100%; }
-nav a:hover { background: #e67e22; color: white; border-radius: 5px; padding-left: 10px; }
-section { padding: 40px 15px; max-width: 900px; margin: auto; }
+nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.97); backdrop-filter: blur(5px); z-index: 1000; padding: 8px 0; }
+nav a { padding: 12px 15px; text-decoration: none; color: #2c3e50; font-weight: 600; font-size: 0.95em; border-radius: 5px; transition: background 0.3s, color 0.3s; text-transform: uppercase; }
+nav a:hover { background: #e67e22; color: white; }
+section { padding: 60px 15px; max-width: 1000px; margin: auto; }
 section h2 { font-size: 1.8em; color: #e67e22; margin-bottom: 15px; text-align: center; text-transform: uppercase; }
 section p { font-size: 1em; line-height: 1.6; text-align: center; max-width: 700px; margin: auto; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; padding: 10px; }
-.gallery figure { position: relative; }
-.gallery img { width: 100%; border-radius: 10px; cursor: pointer; height: 220px; object-fit: cover; }
-.gallery figcaption { text-align: center; font-size: 0.9em; color: #555; margin-top: 5px; }
+.gallery-wrapper { position: relative; overflow: hidden; }
+.gallery { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px; }
+.gallery img { flex: 0 0 auto; width: 250px; border-radius: 10px; cursor: pointer; height: 200px; object-fit: cover; scroll-snap-align: center; transition: transform 0.3s; }
+.gallery img:hover { transform: scale(1.05); }
+.gallery-nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2em; color: #e67e22; cursor: pointer; background: rgba(255,255,255,0.8); border-radius: 50%; padding: 5px 10px; user-select: none; }
+.gallery-nav.left { left: 10px; }
+.gallery-nav.right { right: 10px; }
 footer { background: #111; color: white; text-align: center; padding: 15px; font-size: 0.9em; }
 .button { display: inline-block; background: #e67e22; color: white; padding: 10px 16px; border-radius: 5px; text-decoration: none; margin-top: 15px; transition: background 0.3s; font-size: 1em; }
 .button:hover { background: #ca651a; }
 #whatsapp-button { position: fixed; bottom: 15px; right: 15px; background: #25D366; color: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
 #whatsapp-button:hover { background: #128C7E; }
-iframe { width: 100%; height: 250px; border: none; border-radius: 10px; margin-bottom: 10px; }
-.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 2000; }
-.lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; }
-.lightbox:target { display: flex; }
+@media (max-width: 768px) {
+  header h1 { font-size: 1.5em; }
+  header p { font-size: 1em; }
+  nav a { padding: 10px 12px; font-size: 0.9em; }
+}
 </style>
 </head>
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-
-<nav id="menu">
-<a href="#home"><img src="images/ide2.png" alt="Logo IDE"></a>
+<nav>
 <a href="#home">Home</a>
 <a href="#sobre">Sobre</a>
 <a href="#contato">Contato</a>
 <a href="#doacoes">Doações</a>
 <a href="#galeria">Galeria</a>
 <a href="#devocional">Devocional</a>
-<a href="#documentos">Documentos</a>
-<a href="#videos">Vídeos</a>
 <a href="#testemunhos">Testemunhos</a>
 </nav>
 
@@ -65,14 +57,17 @@ iframe { width: 100%; height: 250px; border: none; border-radius: 10px; margin-b
 
 <section id="galeria">
 <h2>GALERIA DE EVENTOS</h2>
-<div class="gallery">
-<figure>
-<a href="#img1"><img src="images/cruzada4v.jpg" alt="Cruzada IDE"></a>
-<figcaption>Cruzada IDE</figcaption>
-</figure>
-</div>
-<div id="img1" class="lightbox" onclick="location.href='#'">
-<img src="images/cruzada4v.jpg" alt="Cruzada IDE Grande">
+<div class="gallery-wrapper">
+  <div class="gallery" id="gallery">
+    <img src="images/cruzada4v.jpg" alt="Evento 1">
+    <img src="images/Vigília de Jovens_20250605_174148_0000.png" alt="Evento 2">
+    <img src="images/Cruzada - NPL 082023 Cartaz-1-1.png" alt="Evento 3">
+    <img src="images/IMG-20250704-WA0050.jpg" alt="Evento 4">
+    <img src="images/IMG-20250704-WA0048.jpg" alt="Evento 5">
+    <img src="images/IMG-20250704-WA0049.jpg" alt="Evento 6">
+  </div>
+  <div class="gallery-nav left" onclick="scrollGallery(-1)">&#9664;</div>
+  <div class="gallery-nav right" onclick="scrollGallery(1)">&#9654;</div>
 </div>
 </section>
 
@@ -80,13 +75,18 @@ iframe { width: 100%; height: 250px; border: none; border-radius: 10px; margin-b
 <p>IDE ATÉ QUE TODOS ESCUTEM &copy; 2025 | Todos os direitos reservados.</p>
 </footer>
 
-<a id="whatsapp-button" href="https://wa.me/258843829556" target="_blank">&#128222;</a>
+<a id="whatsapp-button" href="https://wa.me/258843829556" target="_blank" title="Fale conosco no WhatsApp">&#128222;</a>
 
 <script>
-function toggleMenu() {
-  document.getElementById('menu').classList.toggle('active');
+function scrollGallery(direction) {
+    const gallery = document.getElementById('gallery');
+    const scrollAmount = 270;
+    gallery.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
 }
 </script>
 
 </body>
-  </html>
+    </html>
