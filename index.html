@@ -20,8 +20,10 @@ section h2 { font-size: 1.8em; color: #e67e22; margin-bottom: 15px; text-align: 
 section p { font-size: 1em; line-height: 1.6; text-align: center; max-width: 700px; margin: auto; }
 .gallery-wrapper { position: relative; overflow: hidden; }
 .gallery { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px; }
-.gallery img { flex: 0 0 auto; width: 250px; border-radius: 10px; cursor: pointer; height: 200px; object-fit: cover; scroll-snap-align: center; transition: transform 0.3s; }
-.gallery img:hover { transform: scale(1.05); }
+.gallery-item { flex: 0 0 auto; width: 250px; scroll-snap-align: center; text-align: center; }
+.gallery-item img { width: 100%; border-radius: 10px; cursor: pointer; height: 180px; object-fit: cover; transition: transform 0.3s; }
+.gallery-item img:hover { transform: scale(1.05); }
+.gallery-caption { font-size: 0.9em; color: #555; margin-top: 5px; }
 .gallery-nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2em; color: #e67e22; cursor: pointer; background: rgba(255,255,255,0.8); border-radius: 50%; padding: 5px 10px; user-select: none; }
 .gallery-nav.left { left: 10px; }
 .gallery-nav.right { right: 10px; }
@@ -30,6 +32,8 @@ footer { background: #111; color: white; text-align: center; padding: 15px; font
 .button:hover { background: #ca651a; }
 #whatsapp-button { position: fixed; bottom: 15px; right: 15px; background: #25D366; color: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
 #whatsapp-button:hover { background: #128C7E; }
+iframe { max-width: 100%; border: none; border-radius: 10px; margin: 10px 0; }
+a.download-link { display: block; color: #e67e22; text-decoration: underline; margin: 5px 0; }
 @media (max-width: 768px) {
   header h1 { font-size: 1.5em; }
   header p { font-size: 1em; }
@@ -47,6 +51,8 @@ footer { background: #111; color: white; text-align: center; padding: 15px; font
 <a href="#galeria">Galeria</a>
 <a href="#devocional">Devocional</a>
 <a href="#testemunhos">Testemunhos</a>
+<a href="#documentos">Documentos</a>
+<a href="#videos">Vídeos</a>
 </nav>
 
 <header id="home">
@@ -55,20 +61,67 @@ footer { background: #111; color: white; text-align: center; padding: 15px; font
 <a href="#contato" class="button">Entre em Contato</a>
 </header>
 
+<section id="sobre">
+<h2>SOBRE NÓS</h2>
+<p>Somos um ministério evangelístico com a missão de alcançar todas as pessoas com a mensagem transformadora de Jesus Cristo, discipulando e treinando vidas para cumprir o IDE até que todos escutem.</p>
+</section>
+
+<section id="contato">
+<h2>CONTATO</h2>
+<p>Envie-nos um e-mail para ideate.todos@gmail.com ou fale diretamente pelo WhatsApp no botão abaixo.</p>
+<a href="https://wa.me/258843829556" class="button" target="_blank">WhatsApp</a>
+</section>
+
+<section id="doacoes">
+<h2>DOAÇÕES</h2>
+<p>Ajude-nos a continuar levando o evangelho a todos os lugares, contribuindo via PIX ou entrando em contato conosco para outras formas de apoio.</p>
+<img src="images/doacoes.jpg" alt="Doações" style="width:100%; max-width:600px; display:block; margin:15px auto; border-radius:10px;">
+</section>
+
 <section id="galeria">
 <h2>GALERIA DE EVENTOS</h2>
 <div class="gallery-wrapper">
   <div class="gallery" id="gallery">
-    <img src="images/cruzada4v.jpg" alt="Evento 1">
-    <img src="images/Vigília de Jovens_20250605_174148_0000.png" alt="Evento 2">
-    <img src="images/Cruzada - NPL 082023 Cartaz-1-1.png" alt="Evento 3">
-    <img src="images/IMG-20250704-WA0050.jpg" alt="Evento 4">
-    <img src="images/IMG-20250704-WA0048.jpg" alt="Evento 5">
-    <img src="images/IMG-20250704-WA0049.jpg" alt="Evento 6">
+    <div class="gallery-item">
+      <img src="images/cruzada4v.jpg" alt="Evento 1">
+      <div class="gallery-caption">Cruzada Evangelística</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/Vigília de Jovens_20250605_174148_0000.png" alt="Evento 2">
+      <div class="gallery-caption">Vigília de Jovens</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/IMG-20250704-WA0050.jpg" alt="Evento 3">
+      <div class="gallery-caption">Culto ao Ar Livre</div>
+    </div>
   </div>
   <div class="gallery-nav left" onclick="scrollGallery(-1)">&#9664;</div>
   <div class="gallery-nav right" onclick="scrollGallery(1)">&#9654;</div>
 </div>
+</section>
+
+<section id="devocional">
+<h2>DEVOCIONAL</h2>
+<p>Reflexões e mensagens para fortalecer sua fé e seu caminhar com Cristo diariamente.</p>
+</section>
+
+<section id="testemunhos">
+<h2>TESTEMUNHOS</h2>
+<p>Leia histórias reais de vidas transformadas pelo poder do evangelho através deste ministério.</p>
+</section>
+
+<section id="documentos">
+<h2>DOCUMENTOS</h2>
+<p>Aqui disponibilizamos materiais para download e estudo:</p>
+<a href="docs/estudo_biblico.pdf" class="download-link" download>Download: Estudo Bíblico.pdf</a>
+<a href="docs/manual_evangelismo.pdf" class="download-link" download>Download: Manual de Evangelismo.pdf</a>
+</section>
+
+<section id="videos">
+<h2>VÍDEOS</h2>
+<p>Assista aos nossos vídeos e participe dos nossos momentos de ensino e culto:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_AQUI" title="YouTube video player" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_AQUI" title="YouTube video player" allowfullscreen></iframe>
 </section>
 
 <footer>
@@ -89,4 +142,4 @@ function scrollGallery(direction) {
 </script>
 
 </body>
-    </html>
+  </html>
