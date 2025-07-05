@@ -3,29 +3,35 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>IDE Até que Todos Escutem</title>
+<title>IDE ATÉ QUE TODOS ESCUTEM</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', sans-serif; background: #ffffff; color: #333; }
 header { position: relative; height: 100vh; background: url('images/1.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
 header::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); }
-header h1 { position: relative; font-size: 2.2em; margin-bottom: 20px; color: #e67e22; padding: 0 10px; }
+header h1 { position: relative; font-size: 2.2em; margin-bottom: 20px; color: #e67e22; padding: 0 10px; text-transform: uppercase; }
 header p { position: relative; max-width: 90%; color: white; font-size: 1.2em; padding: 0 10px; }
 nav { position: fixed; top: 0; width: 100%; display: flex; align-items: center; padding: 5px 15px; background: rgba(255,255,255,0.95); backdrop-filter: blur(5px); z-index: 1000; }
 nav img { height: 60px; margin-right: 15px; }
-nav a { padding: 10px 12px; text-decoration: none; color: #2c3e50; font-weight: 500; transition: background 0.3s, color 0.3s; font-size: 0.95em; }
-nav a:hover { background: #2c3e50; color: white; border-radius: 5px; }
+nav a { padding: 10px 12px; text-decoration: none; color: #2c3e50; font-weight: 500; transition: background 0.3s, color 0.3s; font-size: 0.95em; text-transform: uppercase; }
+nav a:hover { background: #e67e22; color: white; border-radius: 5px; }
 section { padding: 40px 15px; max-width: 900px; margin: auto; }
-section h2 { font-size: 1.8em; color: #e67e22; margin-bottom: 15px; text-align: center; }
+section h2 { font-size: 1.8em; color: #e67e22; margin-bottom: 15px; text-align: center; text-transform: uppercase; }
 section p { font-size: 1em; line-height: 1.6; text-align: center; max-width: 700px; margin: auto; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; padding: 10px; }
-.gallery img { width: 100%; border-radius: 10px; cursor: pointer; transition: transform 0.3s; }
-.gallery img:hover { transform: scale(1.05); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; padding: 10px; }
+.gallery figure { position: relative; }
+.gallery img { width: 100%; border-radius: 10px; cursor: pointer; height: 220px; object-fit: cover; }
+.gallery figcaption { text-align: center; font-size: 0.9em; color: #555; margin-top: 5px; }
 footer { background: #111; color: white; text-align: center; padding: 15px; font-size: 0.9em; }
 .button { display: inline-block; background: #e67e22; color: white; padding: 10px 16px; border-radius: 5px; text-decoration: none; margin-top: 15px; transition: background 0.3s; font-size: 1em; }
 .button:hover { background: #ca651a; }
 #whatsapp-button { position: fixed; bottom: 15px; right: 15px; background: #25D366; color: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
 #whatsapp-button:hover { background: #128C7E; }
+iframe { width: 100%; height: 250px; border: none; border-radius: 10px; margin-bottom: 10px; }
+ul { list-style: none; padding: 0; }
+ul li { margin: 8px 0; }
+ul li a { color: #e67e22; text-decoration: none; }
+ul li a:hover { text-decoration: underline; }
 @media (max-width: 768px) {
   header h1 { font-size: 1.8em; }
   header p { font-size: 1em; }
@@ -45,59 +51,83 @@ footer { background: #111; color: white; text-align: center; padding: 15px; font
 <a href="#doacoes">Doações</a>
 <a href="#galeria">Galeria</a>
 <a href="#devocional">Devocional</a>
+<a href="#documentos">Documentos</a>
+<a href="#videos">Vídeos</a>
 <a href="#testemunhos">Testemunhos</a>
 </nav>
+
 <header id="home">
-<h1>IDE Até que Todos Escutem</h1>
+<h1>IDE ATÉ QUE TODOS ESCUTEM</h1>
 <p>“E indo, pregai, curai os enfermos, ressuscitai os mortos, limpai os leprosos, expulsai os demônios; de graça recebestes, de graça dai.”</p>
 <a href="#contato" class="button">Entre em Contato</a>
 </header>
+
 <section id="sobre">
-<h2>Sobre Nós</h2>
-<p>Somos um ministério evangelístico com a missão de alcançar todas as pessoas com a mensagem transformadora de Jesus Cristo, discipulando e treinando vidas para cumprir o IDE até que todos escutem.</p>
+<h2>SOBRE NÓS</h2>
+<p>Somos um ministério evangelístico comprometido em levar a mensagem transformadora de Jesus Cristo a todos os povos, discipulando vidas para cumprir o IDE até que todos escutem.</p>
 </section>
+
 <section id="contato">
-<h2>Contato</h2>
+<h2>CONTATO</h2>
 <p>Envie-nos um e-mail para ideate.todos@gmail.com ou fale diretamente pelo WhatsApp no botão abaixo.</p>
 <a href="https://wa.me/258843829556" class="button" target="_blank">WhatsApp</a>
 </section>
+
 <section id="doacoes">
-<h2>Doações</h2>
-<p>Ajude-nos a continuar levando o evangelho a todos os lugares, contribuindo via PIX ou entrando em contato conosco para outras formas de apoio.</p>
+<h2>DOAÇÕES</h2>
+<p>Ajude-nos a continuar levando o evangelho ao mundo contribuindo via PIX ou entre em contato para outras formas de apoio.</p>
+<img src="images/Apoio Pedido 4.jpg" alt="Doações IDE" style="width:100%; max-width:600px; border-radius:10px; margin:20px auto; display:block;">
 </section>
-  <img src="images/Apoio Pedido 4.jpg" alt="Evento IDE 1">
+
 <section id="galeria">
-<h2>Galeria de Eventos</h2>
+<h2>GALERIA DE EVENTOS</h2>
 <div class="gallery">
-<img src="images/cruzada4v.jpg" alt="Evento IDE 1">
-<img src="images/Vigília de Jovens_20250605_174148_0000.png" alt="Evento IDE 2">
-<img src="images/Cruzada - NPL 082023 Cartaz-1-1.png" alt="Evento IDE 3">
-  <img src="images/IMG-20250704-WA0050.jpg" alt="Evento IDE 4">
-  <img src="images/IMG-20250704-WA0048.jpg" alt="Evento IDE 5">
-  <img src="images/IMG-20250704-WA0049.jpg" alt="Evento IDE 6">
-  <img src="images/IMG-20250704-WA0075.jpg" alt="Evento IDE 7">
-  <img src="images/IMG-20250704-WA0074.jpg" alt="Evento IDE 8">
-  <img src="images/IMG-20250704-WA0071.jpg" alt="Evento IDE 9">
-  <img src="images/IMG-20250704-WA0070.jpg" alt="Evento IDE 10">
-  <img src="images/IMG-20250704-WA0062.jpg" alt="Evento IDE 11">
-  <img src="images/IMG-20250704-WA0065.jpg" alt="Evento IDE 12">
-  <img src="images/IMG-20250704-WA0073.jpg" alt="Evento IDE 13">
-  <img src="images/IMG-20250704-WA0066.jpg" alt="Evento IDE 14">
-  <img src="images/IMG-20250704-WA0056.jpg" alt="Evento IDE 15">
-  <img src="images/IMG-20250704-WA0068.jpg" alt="Evento IDE 16">
+<figure>
+<img src="images/cruzada4v.jpg" alt="Cruzada IDE">
+<figcaption>Cruzada IDE</figcaption>
+</figure>
+<figure>
+<img src="images/Vigília de Jovens_20250605_174148_0000.png" alt="Vigília de Jovens">
+<figcaption>Vigília de Jovens</figcaption>
+</figure>
+<figure>
+<img src="images/IMG-20250704-WA0050.jpg" alt="Culto IDE">
+<figcaption>Culto IDE</figcaption>
+</figure>
 </div>
 </section>
+
 <section id="devocional">
-<h2>Devocional</h2>
-<p>Reflexões e mensagens para fortalecer sua fé e seu caminhar com Cristo diariamente.</p>
+<h2>DEVOCIONAL</h2>
+<p>Reflexões e mensagens diárias para fortalecer sua fé e seu relacionamento com Cristo.</p>
 </section>
+
+<section id="documentos">
+<h2>DOCUMENTOS</h2>
+<p>Acesse nossos materiais e apostilas para estudo e discipulado.</p>
+<ul>
+<li><a href="docs/guia-oracao.pdf" target="_blank">Guia de Oração (PDF)</a></li>
+<li><a href="docs/discipulado-basico.pdf" target="_blank">Discipulado Básico (PDF)</a></li>
+</ul>
+</section>
+
+<section id="videos">
+<h2>VÍDEOS</h2>
+<p>Assista aos vídeos e cultos do nosso canal no YouTube.</p>
+<iframe src="https://www.youtube.com/embed/VIDEOID1" title="Culto IDE"></iframe>
+<iframe src="https://www.youtube.com/embed/VIDEOID2" title="Cruzada IDE"></iframe>
+<p><a href="https://www.youtube.com/@SEUCANAL" target="_blank">Acesse nosso canal para mais vídeos</a></p>
+</section>
+
 <section id="testemunhos">
-<h2>Testemunhos</h2>
-<p>Leia histórias reais de vidas transformadas pelo poder do evangelho através deste ministério.</p>
+<h2>TESTEMUNHOS</h2>
+<p>Leia testemunhos de vidas transformadas pelo poder do evangelho por meio deste ministério.</p>
 </section>
+
 <footer>
-<p>IDE Até que Todos Escutem &copy; 2025 | Todos os direitos reservados.</p>
+<p>IDE ATÉ QUE TODOS ESCUTEM &copy; 2025 | Todos os direitos reservados.</p>
 </footer>
+
 <a id="whatsapp-button" href="https://wa.me/258843829556" target="_blank" title="Fale conosco no WhatsApp">&#128222;</a>
 </body>
 </html>
