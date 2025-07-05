@@ -16,16 +16,20 @@ nav img { height: 50px; margin-right: 10px; }
 nav a { padding: 10px; text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.95em; text-transform: uppercase; }
 nav a:hover { background: #e67e22; color: white; border-radius: 5px; }
 .menu { display: none; flex-direction: column; cursor: pointer; }
-.menu div { width: 25px; height: 3px; background: #2c3e50; margin: 4px; }
+.menu div { width: 25px; height: 3px; background: #e67e22; margin: 4px; transition: background 0.3s; }
 .links { display: flex; }
 section { padding: 40px 15px; max-width: 900px; margin: auto; }
 section h2 { font-size: 1.8em; color: #e67e22; margin-bottom: 15px; text-align: center; text-transform: uppercase; }
 section p { font-size: 1em; line-height: 1.6; text-align: center; max-width: 700px; margin: auto; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; padding: 10px; }
-.gallery figure { position: relative; }
+.gallery-container { position: relative; overflow: hidden; }
+.gallery { display: flex; gap: 10px; overflow-x: auto; scroll-behavior: smooth; padding: 10px; }
+.gallery figure { min-width: 250px; flex: 0 0 auto; }
 .gallery img { width: 100%; border-radius: 10px; cursor: pointer; height: 220px; object-fit: cover; transition: transform 0.3s; }
 .gallery img:hover { transform: scale(1.03); }
 .gallery figcaption { text-align: center; font-size: 0.9em; color: #555; margin-top: 5px; }
+.gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2em; color: #e67e22; background: rgba(255,255,255,0.7); border-radius: 50%; width: 40px; height: 40px; text-align: center; line-height: 40px; cursor: pointer; user-select: none; }
+.gallery-arrow.left { left: 10px; }
+.gallery-arrow.right { right: 10px; }
 footer { background: #111; color: white; text-align: center; padding: 15px; font-size: 0.9em; }
 .button { display: inline-block; background: #e67e22; color: white; padding: 10px 16px; border-radius: 5px; text-decoration: none; margin-top: 15px; transition: background 0.3s; font-size: 1em; }
 .button:hover { background: #ca651a; }
@@ -69,27 +73,11 @@ ul li a:hover { text-decoration: underline; }
 <a href="#contato" class="button">Entre em Contato</a>
 </header>
 
-<section id="sobre">
-<h2>SOBRE NÓS</h2>
-<p>Somos um ministério evangelístico comprometido em levar a mensagem transformadora de Jesus Cristo a todos os povos, discipulando vidas para cumprir o IDE até que todos escutem.</p>
-</section>
-
-<section id="contato">
-<h2>CONTATO</h2>
-<p>Envie-nos um e-mail para ideate.todos@gmail.com ou fale diretamente pelo WhatsApp no botão abaixo.</p>
-<a href="https://wa.me/258843829556" class="button" target="_blank">WhatsApp</a>
-</section>
-
-<section id="doacoes">
-<h2>DOAÇÕES</h2>
-<p>Ajude-nos a continuar levando o evangelho ao mundo contribuindo via PIX ou entre em contato para outras formas de apoio.</p>
-<img src="images/Apoio Pedido 4.jpg" alt="Doações IDE" style="width:100%; max-width:600px; border-radius:10px; margin:20px auto; display:block;">
-</section>
-
 <section id="galeria">
 <h2>GALERIA DE EVENTOS</h2>
-<div class="gallery">
-<!-- Restaure TODAS suas imagens anteriores aqui usando este modelo -->
+<div class="gallery-container">
+<div class="gallery-arrow left" onclick="scrollGallery(-1)">&#8592;</div>
+<div class="gallery" id="gallery">
 <figure>
 <img src="images/cruzada4v.jpg" alt="Cruzada IDE" onclick="openLightbox(this.src)">
 <figcaption>Cruzada IDE</figcaption>
@@ -98,46 +86,35 @@ ul li a:hover { text-decoration: underline; }
 <img src="images/Vigília de Jovens_20250605_174148_0000.png" alt="Vigília de Jovens" onclick="openLightbox(this.src)">
 <figcaption>Vigília de Jovens</figcaption>
 </figure>
-<!-- Continue com suas outras imagens aqui -->
+<figure>
+<img src="images/IMG-20250704-WA0050.jpg" alt="Culto IDE" onclick="openLightbox(this.src)">
+<figcaption>Culto IDE</figcaption>
+</figure>
+<figure>
+<img src="images/IMG-20250704-WA0048.jpg" alt="Evento IDE 5" onclick="openLightbox(this.src)">
+<figcaption>Evento IDE 5</figcaption>
+</figure>
+<figure>
+<img src="images/IMG-20250704-WA0049.jpg" alt="Evento IDE 6" onclick="openLightbox(this.src)">
+<figcaption>Evento IDE 6</figcaption>
+</figure>
+<figure>
+<img src="images/IMG-20250704-WA0075.jpg" alt="Evento IDE 7" onclick="openLightbox(this.src)">
+<figcaption>Evento IDE 7</figcaption>
+</figure>
+<figure>
+<img src="images/IMG-20250704-WA0074.jpg" alt="Evento IDE 8" onclick="openLightbox(this.src)">
+<figcaption>Evento IDE 8</figcaption>
+</figure>
+<!-- Continue suas imagens aqui como antes -->
+</div>
+<div class="gallery-arrow right" onclick="scrollGallery(1)">&#8594;</div>
 </div>
 </section>
 
-<section id="devocional">
-<h2>DEVOCIONAL</h2>
-<p>Reflexões e mensagens diárias para fortalecer sua fé e seu relacionamento com Cristo.</p>
-</section>
-
-<section id="documentos">
-<h2>DOCUMENTOS</h2>
-<p>Acesse nossos materiais e apostilas para estudo e discipulado.</p>
-<ul>
-<li><a href="docs/guia-oracao.pdf" target="_blank">Guia de Oração (PDF)</a></li>
-<li><a href="docs/discipulado-basico.pdf" target="_blank">Discipulado Básico (PDF)</a></li>
-</ul>
-</section>
-
-<section id="videos">
-<h2>VÍDEOS</h2>
-<p>Assista aos vídeos e cultos do nosso canal no YouTube.</p>
-<iframe src="https://www.youtube.com/embed/VIDEOID1" title="Culto IDE"></iframe>
-<iframe src="https://www.youtube.com/embed/VIDEOID2" title="Cruzada IDE"></iframe>
-<p><a href="https://www.youtube.com/@SEUCANAL" target="_blank">Acesse nosso canal para mais vídeos</a></p>
-</section>
-
-<section id="testemunhos">
-<h2>TESTEMUNHOS</h2>
-<p>Leia testemunhos de vidas transformadas pelo poder do evangelho por meio deste ministério.</p>
-</section>
-
-<footer>
-<p>IDE ATÉ QUE TODOS ESCUTEM &copy; 2025 | Todos os direitos reservados.</p>
-</footer>
-
-<a id="whatsapp-button" href="https://wa.me/258843829556" target="_blank" title="Fale conosco no WhatsApp">&#128222;</a>
-
 <!-- Lightbox -->
-<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:2000;" onclick="this.style.display='none'">
-<img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;">
+<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); align-items:center; justify-content:center; z-index:2000;" onclick="this.style.display='none'">
+<img id="lightbox-img" src="" style="max-width:95%; max-height:95%; border-radius:10px;">
 </div>
 
 <script>
@@ -145,7 +122,14 @@ function openLightbox(src) {
   document.getElementById('lightbox').style.display = 'flex';
   document.getElementById('lightbox-img').src = src;
 }
+function scrollGallery(direction) {
+  const gallery = document.getElementById('gallery');
+  const scrollAmount = 300 * direction;
+  gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+}
 </script>
+
+<a id="whatsapp-button" href="https://wa.me/258843829556" target="_blank" title="Fale conosco no WhatsApp">&#128222;</a>
 
 </body>
   </html>
