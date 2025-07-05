@@ -6,53 +6,55 @@
 <title>IDE ATÉ QUE TODOS ESCUTEM</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
 body { font-family: 'Segoe UI', sans-serif; background: #ffffff; color: #333; }
 header { position: relative; height: 100vh; background: url('images/1.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
 header::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); }
 header h1 { position: relative; font-size: 2.2em; margin-bottom: 20px; color: #e67e22; padding: 0 10px; text-transform: uppercase; }
 header p { position: relative; max-width: 90%; color: white; font-size: 1.2em; padding: 0 10px; }
-nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.97); backdrop-filter: blur(5px); z-index: 1000; padding: 8px 0; }
-nav a { padding: 12px 15px; text-decoration: none; color: #2c3e50; font-weight: 600; font-size: 0.95em; border-radius: 5px; transition: background 0.3s, color 0.3s; text-transform: uppercase; }
-nav a:hover { background: #e67e22; color: white; }
-section { padding: 60px 15px; max-width: 1000px; margin: auto; }
+.menu-btn { position: fixed; top: 15px; right: 15px; z-index: 1100; cursor: pointer; width: 30px; height: 30px; }
+.menu-btn div { width: 100%; height: 4px; background: #e67e22; margin: 5px 0; transition: 0.3s; }
+nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: rgba(255,255,255,0.97); backdrop-filter: blur(5px); display: flex; flex-direction: column; align-items: flex-start; padding: 20px; z-index: 1000; transition: right 0.3s; }
+nav.active { right: 0; }
+nav img { height: 60px; margin-bottom: 20px; }
+nav a { padding: 10px 0; text-decoration: none; color: #2c3e50; font-weight: 500; transition: background 0.3s, color 0.3s; font-size: 1em; text-transform: uppercase; width: 100%; }
+nav a:hover { background: #e67e22; color: white; border-radius: 5px; padding-left: 10px; }
+section { padding: 40px 15px; max-width: 900px; margin: auto; }
 section h2 { font-size: 1.8em; color: #e67e22; margin-bottom: 15px; text-align: center; text-transform: uppercase; }
 section p { font-size: 1em; line-height: 1.6; text-align: center; max-width: 700px; margin: auto; }
-.gallery-wrapper { position: relative; overflow: hidden; }
-.gallery { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px; }
-.gallery-item { flex: 0 0 auto; width: 250px; scroll-snap-align: center; text-align: center; }
-.gallery-item img { width: 100%; border-radius: 10px; cursor: pointer; height: 180px; object-fit: cover; transition: transform 0.3s; }
-.gallery-item img:hover { transform: scale(1.05); }
-.gallery-caption { font-size: 0.9em; color: #555; margin-top: 5px; }
-.gallery-nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2em; color: #e67e22; cursor: pointer; background: rgba(255,255,255,0.8); border-radius: 50%; padding: 5px 10px; user-select: none; }
-.gallery-nav.left { left: 10px; }
-.gallery-nav.right { right: 10px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; padding: 10px; }
+.gallery figure { position: relative; }
+.gallery img { width: 100%; border-radius: 10px; cursor: pointer; height: 220px; object-fit: cover; }
+.gallery figcaption { text-align: center; font-size: 0.9em; color: #555; margin-top: 5px; }
 footer { background: #111; color: white; text-align: center; padding: 15px; font-size: 0.9em; }
 .button { display: inline-block; background: #e67e22; color: white; padding: 10px 16px; border-radius: 5px; text-decoration: none; margin-top: 15px; transition: background 0.3s; font-size: 1em; }
 .button:hover { background: #ca651a; }
 #whatsapp-button { position: fixed; bottom: 15px; right: 15px; background: #25D366; color: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
 #whatsapp-button:hover { background: #128C7E; }
-iframe { max-width: 100%; border: none; border-radius: 10px; margin: 10px 0; }
-a.download-link { display: block; color: #e67e22; text-decoration: underline; margin: 5px 0; }
-@media (max-width: 768px) {
-  header h1 { font-size: 1.5em; }
-  header p { font-size: 1em; }
-  nav a { padding: 10px 12px; font-size: 0.9em; }
-}
+iframe { width: 100%; height: 250px; border: none; border-radius: 10px; margin-bottom: 10px; }
+.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 2000; }
+.lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; }
+.lightbox:target { display: flex; }
 </style>
 </head>
 <body>
 
-<nav>
+<div class="menu-btn" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<nav id="menu">
+<a href="#home"><img src="images/ide2.png" alt="Logo IDE"></a>
 <a href="#home">Home</a>
 <a href="#sobre">Sobre</a>
 <a href="#contato">Contato</a>
 <a href="#doacoes">Doações</a>
 <a href="#galeria">Galeria</a>
 <a href="#devocional">Devocional</a>
-<a href="#testemunhos">Testemunhos</a>
 <a href="#documentos">Documentos</a>
 <a href="#videos">Vídeos</a>
+<a href="#testemunhos">Testemunhos</a>
 </nav>
 
 <header id="home">
@@ -61,83 +63,28 @@ a.download-link { display: block; color: #e67e22; text-decoration: underline; ma
 <a href="#contato" class="button">Entre em Contato</a>
 </header>
 
-<section id="sobre">
-<h2>SOBRE NÓS</h2>
-<p>Somos um ministério evangelístico com a missão de alcançar todas as pessoas com a mensagem transformadora de Jesus Cristo, discipulando e treinando vidas para cumprir o IDE até que todos escutem.</p>
-</section>
-
-<section id="contato">
-<h2>CONTATO</h2>
-<p>Envie-nos um e-mail para ideate.todos@gmail.com ou fale diretamente pelo WhatsApp no botão abaixo.</p>
-<a href="https://wa.me/258843829556" class="button" target="_blank">WhatsApp</a>
-</section>
-
-<section id="doacoes">
-<h2>DOAÇÕES</h2>
-<p>Ajude-nos a continuar levando o evangelho a todos os lugares, contribuindo via PIX ou entrando em contato conosco para outras formas de apoio.</p>
-<img src="images/doacoes.jpg" alt="Doações" style="width:100%; max-width:600px; display:block; margin:15px auto; border-radius:10px;">
-</section>
-
 <section id="galeria">
 <h2>GALERIA DE EVENTOS</h2>
-<div class="gallery-wrapper">
-  <div class="gallery" id="gallery">
-    <div class="gallery-item">
-      <img src="images/cruzada4v.jpg" alt="Evento 1">
-      <div class="gallery-caption">Cruzada Evangelística</div>
-    </div>
-    <div class="gallery-item">
-      <img src="images/Vigília de Jovens_20250605_174148_0000.png" alt="Evento 2">
-      <div class="gallery-caption">Vigília de Jovens</div>
-    </div>
-    <div class="gallery-item">
-      <img src="images/IMG-20250704-WA0050.jpg" alt="Evento 3">
-      <div class="gallery-caption">Culto ao Ar Livre</div>
-    </div>
-  </div>
-  <div class="gallery-nav left" onclick="scrollGallery(-1)">&#9664;</div>
-  <div class="gallery-nav right" onclick="scrollGallery(1)">&#9654;</div>
+<div class="gallery">
+<figure>
+<a href="#img1"><img src="images/cruzada4v.jpg" alt="Cruzada IDE"></a>
+<figcaption>Cruzada IDE</figcaption>
+</figure>
 </div>
-</section>
-
-<section id="devocional">
-<h2>DEVOCIONAL</h2>
-<p>Reflexões e mensagens para fortalecer sua fé e seu caminhar com Cristo diariamente.</p>
-</section>
-
-<section id="testemunhos">
-<h2>TESTEMUNHOS</h2>
-<p>Leia histórias reais de vidas transformadas pelo poder do evangelho através deste ministério.</p>
-</section>
-
-<section id="documentos">
-<h2>DOCUMENTOS</h2>
-<p>Aqui disponibilizamos materiais para download e estudo:</p>
-<a href="docs/estudo_biblico.pdf" class="download-link" download>Download: Estudo Bíblico.pdf</a>
-<a href="docs/manual_evangelismo.pdf" class="download-link" download>Download: Manual de Evangelismo.pdf</a>
-</section>
-
-<section id="videos">
-<h2>VÍDEOS</h2>
-<p>Assista aos nossos vídeos e participe dos nossos momentos de ensino e culto:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_AQUI" title="YouTube video player" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_AQUI" title="YouTube video player" allowfullscreen></iframe>
+<div id="img1" class="lightbox" onclick="location.href='#'">
+<img src="images/cruzada4v.jpg" alt="Cruzada IDE Grande">
+</div>
 </section>
 
 <footer>
 <p>IDE ATÉ QUE TODOS ESCUTEM &copy; 2025 | Todos os direitos reservados.</p>
 </footer>
 
-<a id="whatsapp-button" href="https://wa.me/258843829556" target="_blank" title="Fale conosco no WhatsApp">&#128222;</a>
+<a id="whatsapp-button" href="https://wa.me/258843829556" target="_blank">&#128222;</a>
 
 <script>
-function scrollGallery(direction) {
-    const gallery = document.getElementById('gallery');
-    const scrollAmount = 270;
-    gallery.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
-    });
+function toggleMenu() {
+  document.getElementById('menu').classList.toggle('active');
 }
 </script>
 
